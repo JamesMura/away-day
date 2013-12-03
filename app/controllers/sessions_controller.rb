@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
     if @session.save
       flash[:notice] = "Session was created successfully"
       redirect_to @session
+    else
+      render :new
     end
   end
 

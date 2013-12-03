@@ -13,10 +13,16 @@ describe SessionsController, :type => :controller do
   describe 'POST create' do
     it 'should create session and render index' do
       post :create, :session => {:speakers => 'Paul'}
-      session_id =  assigns[:session].id
+      id =  assigns[:session].id
 
       flash[:notice].should == "Session was created successfully"
-      response.should redirect_to "/sessions/#{session_id}"
+      response.should redirect_to "/sessions/#{id}"
+    end
+
+    it 'should not create session without a speaker and return new' do
+      post :create
+
+      response.should render_template('new')
     end
   end
 end
