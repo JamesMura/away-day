@@ -1,0 +1,42 @@
+<h1> New Session </h1>
+
+<%= form_for :session do |f| %>
+  <p>
+    <%= f.label :speakers %><br>
+    <%= f.text_field :speakers %>
+  </p>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </p>
+
+  <p>
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </p>
+
+  <p>
+    <%= f.label :theme %><br>
+    <%= f.text_field :theme %>
+  </p>
+
+  <p>
+    <%= f.label :resource %><br>
+    <%= f.text_field :resource %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
