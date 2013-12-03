@@ -1,3 +1,3 @@
 class Session < ActiveRecord::Base
-  validates :speaker, presence: true
+  validates :speakers, presence: true
 end

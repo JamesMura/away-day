@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 0) do
 
   create_table "sessions", :force => true do |t|
     t.string   "title"
-    t.string   "speaker"
+    t.string   "speakers"
     t.string   "description"
     t.string   "location"
     t.string   "theme"
