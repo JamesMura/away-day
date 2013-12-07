@@ -1,45 +1,51 @@
 class SessionsController < ApplicationController
+    layout "admin"
 
-  def index
-    @sessions = Session.all
-  end
+    before_filter :set_active
 
-  def show
-    @session = Session.find(params[:id])
-  end
+    def set_active
+        @sessions_active = "active"
+    end
+    def index
+        @sessions = Session.all
+    end
 
-  def new
-    @session = Session.new
-  end
+    def show
+        @session = Session.find(params[:id])
+    end
 
-  def edit
-    @session = Session.find(params[:id])
-  end
+    def new
+        @session = Session.new
+    end
 
-  def create
-    @session = Session.new(params[:session])
+    def edit
+        @session = Session.find(params[:id])
+    end
 
-      if @session.save
-        redirect_to @session, notice: 'Session was successfully created.' 
-      else
-        render action: "new" 
-      end
-  end
+    def create
+        @session = Session.new(params[:session])
 
-  def update
-    @session = Session.find(params[:id])
+        if @session.save
+            redirect_to @session, notice: 'Session was successfully created.' 
+        else
+            render action: "new" 
+        end
+    end
 
-      if @session.update_attributes(params[:session])
-        redirect_to @session, notice: 'Session was successfully updated.'
-      else
-        render action: "edit" 
-      end
-  end
+    def update
+        @session = Session.find(params[:id])
 
-  def destroy
-    @session = Session.find(params[:id])
-    @session.destroy
+        if @session.update_attributes(params[:session])
+            redirect_to @session, notice: 'Session was successfully updated.'
+        else
+            render action: "edit" 
+        end
+    end
 
-    redirect_to sessions_url
-  end
+    def destroy
+        @session = Session.find(params[:id])
+        @session.destroy
+
+        redirect_to sessions_url
+    end
 end

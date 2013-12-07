@@ -1,44 +1,50 @@
 class SpeakersController < ApplicationController
-  def index
-    @speakers = Speaker.all
-  end
+    layout "admin"
+    before_filter :set_active
 
-  def show
-    @speaker = Speaker.find(params[:id])
-  end
+    def set_active
+        @speakers_active = "active"
+    end
+    def index
+        @speakers = Speaker.all
+    end
 
-  def new
-    @speaker = Speaker.new
-  end
+    def show
+        @speaker = Speaker.find(params[:id])
+    end
 
-  def edit
-    @speaker = Speaker.find(params[:id])
-  end
+    def new
+        @speaker = Speaker.new
+    end
 
-  def create
-    @speaker = Speaker.new(params[:speaker])
+    def edit
+        @speaker = Speaker.find(params[:id])
+    end
 
-      if @speaker.save
-        redirect_to @speaker, notice: 'Speaker was successfully created.'
-      else
-        render action: "new"
-      end
-  end
+    def create
+        @speaker = Speaker.new(params[:speaker])
 
-  def update
-    @speaker = Speaker.find(params[:id])
+        if @speaker.save
+            redirect_to @speaker, notice: 'Speaker was successfully created.'
+        else
+            render action: "new"
+        end
+    end
 
-      if @speaker.update_attributes(params[:speaker])
-        redirect_to @speaker, notice: 'Speaker was successfully updated.'
-      else
-        render action: "edit"
-      end
-  end
+    def update
+        @speaker = Speaker.find(params[:id])
 
-  def destroy
-    @speaker = Speaker.find(params[:id])
-    @speaker.destroy
+        if @speaker.update_attributes(params[:speaker])
+            redirect_to @speaker, notice: 'Speaker was successfully updated.'
+        else
+            render action: "edit"
+        end
+    end
 
-    redirect_to speakers_url
-  end
+    def destroy
+        @speaker = Speaker.find(params[:id])
+        @speaker.destroy
+
+        redirect_to speakers_url
+    end
 end

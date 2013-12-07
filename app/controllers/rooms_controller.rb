@@ -1,44 +1,51 @@
 class RoomsController < ApplicationController
-  def index
-    @rooms = Room.all
-  end
+    layout "admin"
 
-  def show
-    @room = Room.find(params[:id])
-  end
+    before_filter :set_active
 
-  def new
-    @room = Room.new
-  end
+    def set_active
+        @rooms_active = "active"
+    end
+    def index
+        @rooms = Room.all
+    end
 
-  def edit
-    @room = Room.find(params[:id])
-  end
+    def show
+        @room = Room.find(params[:id])
+    end
 
-  def create
-    @room = Room.new(params[:room])
+    def new
+        @room = Room.new
+    end
 
-      if @room.save
-        redirect_to @room, notice: 'Room was successfully created.' 
-      else
-        render action: "new"
-      end
-  end
+    def edit
+        @room = Room.find(params[:id])
+    end
 
-  def update
-    @room = Room.find(params[:id])
+    def create
+        @room = Room.new(params[:room])
 
-      if @room.update_attributes(params[:room])
-        redirect_to @room, notice: 'Room was successfully updated.' 
-      else
-        render action: "edit"
-      end
-  end
+        if @room.save
+            redirect_to @room, notice: 'Room was successfully created.' 
+        else
+            render action: "new"
+        end
+    end
 
-  def destroy
-    @room = Room.find(params[:id])
-    @room.destroy
+    def update
+        @room = Room.find(params[:id])
 
-    redirect_to rooms_url
-  end
+        if @room.update_attributes(params[:room])
+            redirect_to @room, notice: 'Room was successfully updated.' 
+        else
+            render action: "edit"
+        end
+    end
+
+    def destroy
+        @room = Room.find(params[:id])
+        @room.destroy
+
+        redirect_to rooms_url
+    end
 end

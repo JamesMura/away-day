@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AwaydayApp</title>
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= csrf_meta_tags %>
+        <script src="http://cdn.alloyui.com/2.0.0/aui/aui-min.js"></script>
+        <!-- <link href="http://cdn.alloyui.com/2.0.0/aui-css/css/bootstrap.min.css" rel="stylesheet"></link> -->
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="<%= pages_home_path %>">Pan Africa Away day</a>
+                <ul class="nav">
+                    <li class="<%= @sessions_active %>"><a href="<%= sessions_path %>">Sessions</a></li>
+                    <li class="<%= @rooms_active %>" ><a href="<%= rooms_path %>">Rooms</a></li>
+                    <li class="<%= @speakers_active %>"><a href="<%= speakers_path %>">Speakers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="twelve columns">
+                    <%= yield %>
+                </div>
+            </div>
+            <div class="footer">
+                <p></p>
+            </div>
+        </div>
+
+
+    </body>
+</html>

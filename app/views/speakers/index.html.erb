@@ -1,11 +1,10 @@
 <h1>Listing speakers</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Bio</th>
     <th>Photo</th>
-    <th>Sessions</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,7 +15,6 @@
     <td><%= speaker.name %></td>
     <td><%= speaker.bio %></td>
     <td><%= speaker.photo %></td>
-    <td><%= speaker.sessions %></td>
     <td><%= link_to 'Show', speaker %></td>
     <td><%= link_to 'Edit', edit_speaker_path(speaker) %></td>
     <td><%= link_to 'Destroy', speaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
