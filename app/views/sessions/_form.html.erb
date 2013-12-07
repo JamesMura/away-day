@@ -1,0 +1,13 @@
+<%= bootstrap_form_for(@session) do |f| %>
+  
+
+    <%= f.text_field :title %>
+    <%= f.text_area :description %>
+    <%= f.datetime_select :startTime %>
+    <%= f.datetime_select :endTime %>
+    <%= f.select( :room_id, Room.all.collect {|a| [a.name, a.id]}) -%>
+
+	<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

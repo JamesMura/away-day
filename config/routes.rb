@@ -1,5 +1,14 @@
 AwaydayApp::Application.routes.draw do
+  resources :rooms
+
+
   resources :sessions
 
-  root to: "sessions#index"
+
+  get "pages/home"
+
+  get "pages/emergency"
+
+  get "pages/directions"
+  root to: "pages#home"
 end
