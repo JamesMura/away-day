@@ -1,4 +1,7 @@
 AwaydayApp::Application.routes.draw do
+  resources :speakers
+
+
   resources :rooms
 
 

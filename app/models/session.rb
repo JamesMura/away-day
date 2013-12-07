@@ -10,4 +10,6 @@ class Session < ActiveRecord::Base
   validates :endTime , :presence => true
   
   validates :description , :presence => true
+  
+  has_and_belongs_to_many :speakers
 end
