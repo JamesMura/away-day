@@ -8,6 +8,10 @@ class SessionsController < ApplicationController
     end
     def index
         @sessions = Session.all
+        respond_to do |format|
+              format.html
+              format.json { render json: @sessions }
+        end
     end
 
     def show
