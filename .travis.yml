@@ -3,3 +3,4 @@ rvm:
   - 1.9.3
 before_install:
   - createuser awayday -d -s
+  - psql -c 'create database pa_away_day_test ' -U awayday
