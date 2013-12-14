@@ -7,6 +7,10 @@ class SpeakersController < ApplicationController
     end
     def index
         @speakers = Speaker.all
+        respond_to do |format|
+              format.html
+              format.json { render json: @speakers }
+        end
     end
 
     def show
