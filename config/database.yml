@@ -2,6 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: pa_away_day_dev
+  username: awayday
   host: localhost
   pool: 5
   timeout: 5000
@@ -12,6 +13,7 @@ test:
   database: pa_away_day_test
   pool: 5
   timeout: 5000
+  username: awayday
 
 production:
   adapter: postgresql
@@ -19,3 +21,4 @@ production:
   database: pa_away_day_prod
   pool: 5
   timeout: 5000
+  username: awayday
