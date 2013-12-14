@@ -3,5 +3,3 @@ rvm:
   - 1.9.3
 before_install:
   - createuser awayday -d -s
-script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate spec
