@@ -22,9 +22,14 @@
 
 <p>
   <b>Room:</b>
-  <%= @session.room %>
+  <a href="<%= room_path @session.room %>"><%= @session.room.name %></a>
 </p>
-
+<p>
+  <b>Speakers:</b>
+   <% @session.speakers.each do |speaker| %>
+    <a href="<%= speaker_path speaker %>"><%= speaker.name %></a>
+   <% end %>
+</p>
 
 <%= link_to 'Edit', edit_session_path(@session) %> |
 <%= link_to 'Back', sessions_path %>

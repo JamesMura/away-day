@@ -4,6 +4,7 @@ gem 'rails', '3.2.16'
 
 gem 'pg'
 
+gem 'rabl-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

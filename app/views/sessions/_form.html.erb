@@ -6,7 +6,7 @@
     <%= f.datetime_select :startTime %>
     <%= f.datetime_select :endTime %>
     <%= f.select( :room_id, Room.all.collect {|a| [a.name, a.id]}) -%>
-
+	<%= f.select :speaker_ids, Speaker.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
 	<div class="actions">
     <%= f.submit %>
   </div>

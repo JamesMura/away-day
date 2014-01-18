@@ -17,7 +17,9 @@
 
 <p>
   <b>Sessions:</b>
-  <%= @speaker.sessions %>
+   <% @speaker.sessions.each do |session| %>
+    <a href="<%= session_path session %>"><%= session.title %></a>
+   <% end %>
 </p>
 
 

@@ -18,7 +18,7 @@
     <td><%= session.description %></td>
     <td><%= session.startTime %></td>
     <td><%= session.endTime %></td>
-    <td><%= session.room %></td>
+    <td><a href="<%= room_path session.room %>"><%= session.room.name %></a></td>
     <td><%= link_to 'Show', session %></td>
     <td><%= link_to 'Edit', edit_session_path(session) %></td>
     <td><%= link_to 'Destroy', session, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     layout "admin"
-
+    respond_to :html, :json
     before_filter :set_active
 
     def set_active
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         @sessions = Session.all
         respond_to do |format|
               format.html
-              format.json { render json: @sessions }
+              format.json { respond_with @sessions }
         end
     end
 

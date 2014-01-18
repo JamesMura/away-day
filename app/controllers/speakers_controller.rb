@@ -1,5 +1,6 @@
 class SpeakersController < ApplicationController
     layout "admin"
+    respond_to :html, :json
     before_filter :set_active
 
     def set_active
@@ -9,7 +10,7 @@ class SpeakersController < ApplicationController
         @speakers = Speaker.all
         respond_to do |format|
               format.html
-              format.json { render json: @speakers }
+              format.json { respond_with @speakers }
         end
     end
 
