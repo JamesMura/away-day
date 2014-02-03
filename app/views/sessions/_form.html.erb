@@ -3,6 +3,7 @@
 
     <%= f.text_field :title %>
     <%= f.text_area :description %>
+    <%= f.check_box :is_keynote %> 
     <%= f.datetime_select :startTime %>
     <%= f.datetime_select :endTime %>
     <%= f.select( :room_id, Room.all.collect {|a| [a.name, a.id]}) -%>

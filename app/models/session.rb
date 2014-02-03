@@ -1,5 +1,5 @@
 class Session < ActiveRecord::Base
-  attr_accessible :description, :endTime, :room, :startTime, :title , :room_id, :speakers, :speaker_ids
+  attr_accessible :description, :endTime, :room, :startTime, :title , :room_id, :speakers, :speaker_ids, :is_keynote
   
   belongs_to :room
   
