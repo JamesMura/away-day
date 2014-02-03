@@ -1,13 +1,12 @@
-<%= bootstrap_form_for(@session) do |f| %>
+<%= simple_form_for(@session, :html => {:class => 'form-horizontal' }) do |f| %>
   
-
-    <%= f.text_field :title %>
-    <%= f.text_area :description %>
-    <%= f.check_box :is_keynote %> 
-    <%= f.datetime_select :startTime %>
-    <%= f.datetime_select :endTime %>
-    <%= f.select( :room_id, Room.all.collect {|a| [a.name, a.id]}) -%>
-	<%= f.select :speaker_ids, Speaker.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :is_keynote, as: :boolean %> 
+    <%= f.input :startTime, as: :datetime %>
+    <%= f.input :endTime , as: :datetime %>
+    <%= f.association :room , collection: Room.all -%>
+	<%= f.association :speakers, collection:  Speaker.all, :multiple => true %>
 	<div class="actions">
     <%= f.submit %>
   </div>

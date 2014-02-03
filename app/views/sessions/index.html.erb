@@ -4,6 +4,8 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
+    <th>Keynote</th>
+
     <th>Starttime</th>
     <th>Endtime</th>
     <th>Room</th>
@@ -16,6 +18,7 @@
   <tr>
     <td><%= session.title %></td>
     <td><%= session.description %></td>
+    <td><%= session.is_keynote %></td>
     <td><%= session.startTime %></td>
     <td><%= session.endTime %></td>
     <td><a href="<%= room_path session.room %>"><%= session.room.name %></a></td>

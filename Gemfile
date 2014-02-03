@@ -14,6 +14,7 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap_forms'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails'
